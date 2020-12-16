@@ -1,3 +1,8 @@
+// create variables to use for reference in html
+var currentDay = $("#currentDay");
+var textArea = $(".textarea");
+var saveBtn = (".saveBtn");
+
 // upon page open, date/time are shown at top
 // TODO: use third party library to fetch date/time data
 // TODO: print day/time to screen
