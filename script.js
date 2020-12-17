@@ -1,18 +1,16 @@
-// create variables to use for reference in html
-$("#currentDay").text(moment().format("dddd,MMMM Do"))
-// upon page open, date/time are shown at top
-// TODO: use third party library to fetch date/time data
-// TODO: print day/time to screen
+// Display current day/time to screen
+$("#currentDay").text(moment().format("MMMM Do YYYY, h:MM:ss a"))
+
+// when I click the save button, tasks are saved to local storage
 $(".saveBtn").on("click", function(){
     var time = $(this).parent().attr("id");
     var input = $(this).siblings(".description").val();
     localStorage.setItem(time, input);
 })
-// previously saved tasks generate from local storage (or any empty array if nothing exists).
-// TODO: function to generate info from local storage at page load
 
 // as time moves forward, hour rows change from green (future), current (red) & past (grey).
-// TODO: create conditionals that add/remove class names to rows 
+var interval = setInterval(hourChange, 15000);
+
 function hourChange(){
     var currentHour = moment().hours()
     $(".time-block").each(function(){
@@ -30,11 +28,13 @@ function hourChange(){
     });
 };
  hourChange();
-var interval = setInterval(hourChange, 15000);
-$("#hour-9 .description").val(localStorage.getItem("hour-9"));
-$("#hour-9 .description").val(localStorage.getItem("hour-10")); // cotinue for each time field
-// when I click into a text area, I can record my tasks 
-// TODO: create click event so user input field for text is generated when click happens
 
-// when I click the save button, tasks are saved to local storage
-// TODO: create click event that saves text to local storage
+$("#hour-9 .description").val(localStorage.getItem("hour-9"));
+$("#hour-10 .description").val(localStorage.getItem("hour-10"));
+$("#hour-11 .description").val(localStorage.getItem("hour-11"));
+$("#hour-12 .description").val(localStorage.getItem("hour-12"));
+$("#hour-1 .description").val(localStorage.getItem("hour-1"));
+$("#hour-2 .description").val(localStorage.getItem("hour-2"));
+$("#hour-3 .description").val(localStorage.getItem("hour-3"));
+$("#hour-4 .description").val(localStorage.getItem("hour-4"));
+$("#hour-5 .description").val(localStorage.getItem("hour-5")); 
