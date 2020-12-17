@@ -9,12 +9,12 @@ $(".saveBtn").on("click", function(){
 })
 
 // as time moves forward, hour rows change from green (future), current (red) & past (grey).
-var interval = setInterval(hourChange, 15000);
 
 function hourChange(){
     var currentHour = moment().hours()
     $(".time-block").each(function(){
         var compareHour = parseInt($(this).attr("id").split("-")[1]);
+        // console.log(this);
         if(compareHour < currentHour){
             $(this).addClass("past")
         }else if(compareHour === currentHour){
@@ -29,12 +29,14 @@ function hourChange(){
 };
  hourChange();
 
+ var interval = setInterval(hourChange, 5000);
+
 $("#hour-9 .description").val(localStorage.getItem("hour-9"));
 $("#hour-10 .description").val(localStorage.getItem("hour-10"));
 $("#hour-11 .description").val(localStorage.getItem("hour-11"));
 $("#hour-12 .description").val(localStorage.getItem("hour-12"));
-$("#hour-1 .description").val(localStorage.getItem("hour-1"));
-$("#hour-2 .description").val(localStorage.getItem("hour-2"));
-$("#hour-3 .description").val(localStorage.getItem("hour-3"));
-$("#hour-4 .description").val(localStorage.getItem("hour-4"));
-$("#hour-5 .description").val(localStorage.getItem("hour-5")); 
+$("#hour-13 .description").val(localStorage.getItem("hour-13"));
+$("#hour-14 .description").val(localStorage.getItem("hour-14"));
+$("#hour-15 .description").val(localStorage.getItem("hour-15"));
+$("#hour-16 .description").val(localStorage.getItem("hour-16"));
+$("#hour-17 .description").val(localStorage.getItem("hour-17")); 
